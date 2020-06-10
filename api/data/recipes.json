@@ -1,0 +1,25 @@
+{
+    "recipes": {
+        "data": [
+        {
+            "id": "1",
+            "title": "Bolo de cenoura",
+            "description": "Delicioso bolo, fofinho de cenoura",
+            "ingredients": "farinha, ovo, fermento, cenoura e açúcar",
+            "howtomake": "Adicionar os ingredientes ao liquidificador e ligar."
+        },
+        {
+            "id": "2",
+            "title": "Bolo de chocolate",
+            "ingredients": "farinha, ovo, fermento, chocolate e açúcar",
+            "howtomake": "Adicionar os ingredientes ao liquidificador e ligar."
+        },
+        {
+            "id": "3",
+            "title": "Bolo de limão",
+            "ingredients": "farinha, ovo, fermento, limão e açúcar",
+            "howtomake": "Adicionar os ingredientes ao liquidificador e ligar."
+        }
+        ]
+    }
+}
