@@ -1,3 +1,5 @@
+require("dotenv-safe").config();
+const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const path = require('path');
 
@@ -53,4 +55,42 @@ module.exports = app => {
 
     app.route('/api/v1/recipes/:id')
         .get(controllerId.recipe);
+
+    app.route('/api/v1/login')
+        .post((req, res) => {
+            if (req.body.user === 'luiz' && req.body.password === '123') {
+                //auth ok
+                const id = 1; //esse id viria do banco de dados
+                const token = jwt.sign({
+                    id
+                }, process.env.SECRET, {
+                    expiresIn: 300 // expires in 5min
+                });
+                return res.json({
+                    auth: true,
+                    token: token
+                });
+            }
+
+            res.status(500).json({
+                message: 'Login inválido!'
+            });
+        })
+
+    app.route('/api/v1/logout')
+        .post((req, res) => {
+            res.json({
+                auth: false,
+                token: null
+            })
+        })
+
+    app.route('/api/v1/clientes')
+        .get((req, res) => {
+            console.log("Retornou todos clientes!");
+            res.json([{
+                id: 1,
+                nome: 'luiz'
+            }]);
+        })
 }
